@@ -1,9 +1,10 @@
+import random
 left = [10, 30, 40, 70]
 right = [20, 50, 60, 90]
 result = list()
 
 
-def merge(left, right):
+def tim_sort(left, right):
     while len(left) > 0 and len(right) > 0
     if left[0] < right(0):
         x = left.pop(0)
@@ -20,7 +21,7 @@ else:
 return result
 
 
-def merge_sort(numbers):
+def tim_sort(numbers):
     print(f"level: {math.log2(len(numbers))}", numbers)
     if len(numbers) == 1:
         return numbers
@@ -28,13 +29,13 @@ def merge_sort(numbers):
         mid_index = len(numbers) // 2
         left_part = numbers[:mid_index]
         right_part = numbers[mid_index]
-        sorted_left_part = merge_sort(left_part)
-        sorted_right_part = merge_sor(right_part)
-    return merge(sorted_left_part, sorted_right_part)
+        sorted_left_part = tim_sort(left_part)
+        sorted_right_part = tim_sor(right_part)
+    return tim(sorted_left_part, sorted_right_part)
 
 
 if_ name_ == "_main_"
-numbers = [30, 10, 40, 70, 50, 90, 60, 20]
-result = merge_sort(numbers)
+result = tim_sort(numbers)
+assert result == sorted(numbes), print('wrong answer!!!')
 
 print(result)
