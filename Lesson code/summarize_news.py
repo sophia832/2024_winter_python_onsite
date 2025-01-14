@@ -14,7 +14,7 @@ news = pd.read_csv("news.csv")
 # solution 2
 
 
-def summarize_google_news(csv_file="news.csv"):
+def summarize_google_news(csv_file="news.csv", max_topics=5):
     news = pd.read_csv(csv_file)
     groups = news.groupby('topic_id')
     summarizations = list()

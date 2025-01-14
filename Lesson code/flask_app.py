@@ -62,13 +62,13 @@ def handle_message(event):
 
     if user_message == "本日新聞摘要":
 
-            summarizations = [
-                f'{idx+1}: \n{summarization}\n'
-                for idx, summarization in enumerate(summarize_google_news())
+        summarizations = [
+            f'{idx+1}: \n{summarization}\n'
+            for idx, summarization in enumerate(summarize_google_news())
 
-            ]
+        ]
         responses = [
-            TextMessage(text="新聞摘要如下:\n" + "\n".join(summarize_google_news()))
+            TextMessage(text="新聞摘要如下:\n" + "\n".join(summarizations))
         ]
     else:
         responses = [
