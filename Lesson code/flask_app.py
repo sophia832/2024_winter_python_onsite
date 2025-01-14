@@ -22,6 +22,8 @@ from linebot.v3.webhooks import (
 )
 
 import os
+import Google_news
+from summarize_news import summarize_google_news
 
 app = Flask(__name__)
 handler = WebhookHandler(os.getenv('LINEBOT_SECRET_KEY'))
@@ -59,8 +61,14 @@ def handle_message(event):
     user_message = event.message.text  # 使用者傳過來的訊息
 
     if user_message == "本日新聞摘要":
+
+            summarizations = [
+                f'{idx+1}: \n{summarization}\n'
+                for idx, summarization in enumerate(summarize_google_news())
+
+            ]
         responses = [
-            TextMessage(text="此處應由爬蟲爬取結果後，交由ChatGPT擷取摘要，再回傳給使用者")
+            TextMessage(text="新聞摘要如下:\n" + "\n".join(summarize_google_news()))
         ]
     else:
         responses = [
